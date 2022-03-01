@@ -1,0 +1,17 @@
+[
+	{
+		"Configuration": {
+			"title":"Watt Builder",
+			"logo":"fa fa-bolt",
+			"theme":"Blue",
+			"ContactInformation": {
+				"address":"91 Ocean Street",
+				"city":"Boston",
+				"state":"MA",
+				"zipcode":"92829"
+			},
+			"copyright":"WattBuilder",
+			"autocheckouttime":1
+		}
+	}
+]

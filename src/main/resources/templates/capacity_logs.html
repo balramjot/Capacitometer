@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" lang="en">
+
+<!-------------- head --------------->
+<head th:replace="fragments/head :: head"></head>
+    <body id="page-top">
+    
+        <!-------------- header --------------->
+   		<header th:replace="fragments/header_others :: header"></header>
+        
+        
+        <!-- Let's Start Section-->
+        <section class="page-section portfolio" id="letStart">
+            <div class="container">
+                <!-- Let's Start Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-top: 30px;">Capacity By Months Logs</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-indent"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Let's Start Grid Items-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                      
+                        <!-- to get an API token!-->
+                         <form method="GET" th:action="@{/capacityLogs/searchLogs}">
+                            <label for="user">Select gym member from the following list to view logs:</label>
+                            <div class="form-floating mb-3 col-md-5" style="float: left;">
+                                <input class="form-control" id="from" type="date" placeholder="2020-02-15" name="from" th:value="${from}" required/>
+                                <label for="from">From</label>
+                            </div>
+                            <div class="form-floating mb-3 col-md-4" style="float: left;margin-left: 20px;">
+                                <input class="form-control" id="to" type="date" placeholder="2020-02-15" name="to" th:value="${to}" required/>
+                                <label for="to">To</label>
+                            </div>
+                            <!-- Submit Button-->
+                            <div class="col-lg-2" style="float: right; margin-top: 20px;">
+                            	<button class="btn btn-info btn-xl" type="submit" name="search"><i class="fas fa-search"></i></button>
+                            </div>
+                            	<div class="clear"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Analysis Section-->
+        <section class="page-section portfolio" id="analysis" style="padding-top: 0px;" th:if="${!isLogsEmpty}">
+            <div class="container">
+                <!-- Let's Start Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+                	<span th:text="${startMonth}"></span> <span th:text="' ' + ${startYear}"></span> - <span th:text="${endMonth}"></span> <span th:text="' ' + ${endYear}"></span> Logs</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-table"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Let's Start Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Check In-->
+                    <div class="col-md-10 col-lg-10 mb-5">
+                        <div id="container" style="width: 100%; height: 318px; margin: 0 auto"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!------------ Footer ------------>
+        <footer th:replace="fragments/footer :: footer"></footer>
+        
+         <!------------ Copyright ------------>
+        <div th:replace="fragments/copyright :: copyright"></div>
+        
+        <!-- js -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script th:inline="javascript">
+		    $(function(){
+		    	console.log(/*[[${chartLabels}]]*/);
+		    	/***** Bar Chart ******/
+		    Highcharts.chart('container', {
+		        chart: {
+		            type: 'column'
+		        },
+		        title: false,
+		        subtitle: false,
+		        xAxis: {
+		            categories: /*[[${chartLabels}]]*/ 'default',
+		            crosshair: true
+		        },
+		        yAxis: {
+		            min: 0,
+		            max:200,
+		            title: {
+		                text: 'No. of Gym Members'
+		            }
+		        },
+		        tooltip: {
+		            headerFormat: '<span style="font-size:10px">Total members check in for {point.x}</span><table>',
+		            pointFormat: '<tr><td style="padding:0"><b>{point.y:.0f}</b></td></tr>',
+		            footerFormat: '</table>',
+		            shared: true,
+		            useHTML: true
+		        },
+		        plotOptions: {
+		            column: {
+		                pointPadding: 0.2,
+		                borderWidth: 0
+		            }
+		        },
+		        series: [{
+		            name: 'Months',
+		            data: /*[[${chartValues}]]*/ 'values'
+		        }]
+		    });
+		    });
+    	</script>
+        <!-- js -->
+    </body>
+</html>

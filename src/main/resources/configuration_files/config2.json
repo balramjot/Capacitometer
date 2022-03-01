@@ -1,0 +1,17 @@
+[
+	{
+		"Configuration": {
+			"title":"BJS Resorts",
+			"logo":"fa fa-plus",
+			"theme":"Light",
+			"ContactInformation": {
+				"address":"34 Quality Ave.",
+				"city":"Brisbane",
+				"state":"NJ",
+				"zipcode":"01923"
+			},
+			"copyright":"BjsResorts",
+			"autocheckouttime":24
+		}
+	}
+]

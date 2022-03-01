@@ -1,0 +1,17 @@
+[
+	{
+		"Configuration": {
+			"title":"The Hulkz",
+			"logo":"fa fa-plug",
+			"theme":"green",
+			"ContactInformation": {
+				"address":"21 Sandalwood Park Way",
+				"city":"Brampton",
+				"state":"ON",
+				"zipcode":"55432"
+			},
+			"copyright":"Hulkz",
+			"autocheckouttime":3
+		}
+	}
+]

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Footer</title>
+</head>
+<body>
+	<div th:fragment="copyright" class="copyright py-4 text-center text-white">
+	    <div class="container"><small>Copyright &copy; <span th:text="${applicationConfiguration.uiSettings.copyright}"></span></small></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+	{
+		"Configuration": {
+			"title":"MK Restaurant",
+			"logo":"fa fa-building",
+			"theme":"dark",
+			"ContactInformation": {
+				"address":"Sandal Plaze",
+				"city":"Fresno",
+				"state":"CA",
+				"zipcode":"95854"
+			},
+			"copyright":"MKRestaurant",
+			"autocheckouttime":5
+		}
+	}
+]

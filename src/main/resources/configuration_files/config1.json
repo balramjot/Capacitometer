@@ -1,0 +1,17 @@
+[
+	{
+		"Configuration": {
+			"title":"Capacitometer",
+			"logo":"fa fa-signal",
+			"theme":"Orange",
+			"ContactInformation": {
+				"address":"123 Gillmore Street",
+				"city":"Houston",
+				"state":"TX",
+				"zipcode":"12345"
+			},
+			"copyright":"Capacitometer",
+			"autocheckouttime":5
+		}
+	}
+]

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" lang="en">
+
+<!-------------- head --------------->
+<head th:replace="fragments/head :: head"></head>
+    <body id="page-top">
+    
+        <!-------------- header --------------->
+   		<header th:replace="fragments/header_others :: header"></header>
+        
+        
+        <!-- Let's Start Section-->
+        <section class="page-section portfolio" id="letStart">
+            <div class="container">
+                <!-- Let's Start Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-top: 30px;" th:text="${pageTitle} == 'checkIn' ? 'Ready to pump !!!!!' : 'All set to go !!!!'"></h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-check"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Let's Start Grid Items-->
+                <div class="row justify-content-center">					
+                    <div class="col-lg-8 col-xl-7">
+                      	<!-------------- success message on user creation --------------->
+                			
+	                	<div th:if="${message}" th:class="${'alert ' + swapClass}" role="alert">
+						  <strong th:text="${message}"></strong>
+						</div>
+						<!-------------- error message on user creation --------------->	
+						<div th:each="erm : ${errorMessage}">
+							<div th:if="${erm}" class="alert alert-danger" role="alert">
+							  <strong th:text="${erm}"></strong>
+							</div>
+						</div>
+                        <!-- to get an API token!-->
+                        <form method="POST" th:action="${pageTitle} == 'checkIn' ? @{/action/checkIn} : @{/action/checkOut}">
+                            <label for="user">Select your name from the following list to continue:</label>
+                            <div class="form-floating mb-3">
+                                <select th:field="${timesheet.gymMember}" class="form-control" style="height: 60px; padding-top: 0px; padding-bottom: 0px;">
+                                   <option th:each="gymMember : ${gymMembers}" th:value="${gymMember.Id}" th:text="${gymMember.firstName} + ' ' + ${gymMember.lastName}"></option>
+                                </select>
+                            </div>
+                            <!-- Submit Button-->
+                            <button class="btn btn-success btn-xl" type="submit" th:if="${pageTitle == 'checkIn'}"><i class="fas fa-arrow-down"></i>&nbsp;Let's workout</button>
+                            <button class="btn btn-danger btn-xl" type="submit" th:if="${pageTitle == 'checkOut'}"><i class="fas fa-arrow-up"></i>&nbsp;I am done</button>
+                            <a href="/" class="btn btn-secondary btn-xl" style="float:right"><i class="fas fa-times"></i>&nbsp;Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!------------ Footer ------------>
+        <footer th:replace="fragments/footer :: footer"></footer>
+        
+         <!------------ Copyright ------------>
+        <div th:replace="fragments/copyright :: copyright"></div>
+        
+        <!-- js -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- js -->
+    </body>
+</html>

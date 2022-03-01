@@ -1,0 +1,111 @@
+.donut-widget {
+    display: block;
+    position: relative;
+}
+.donut-widget div.donut-hole {
+    background-color: #fff;
+    z-index: 20;
+    position: absolute;
+}
+.donut-widget span.donut-filling {
+    position: absolute;
+    display: block;
+    vertical-align: middle;
+    font-family: "Open Sans";
+    font-weight: 300;
+    color: #616161;
+    text-align: center;
+    top: 50%;
+    cursor: default;
+    overflow: none;
+}
+.donut-widget div.donut-caption-wrapper{
+    align-content: center;
+    position: relative;
+}
+.donut-widget span.donut-caption{
+    display: block;
+    text-align: center;
+    font-family: "Open Sans";
+    color: #616161;
+    font-weight: 600;
+    cursor: default;
+    margin: 0 auto;
+}
+.donut-widget .donut-bite {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    -moz-transform-origin: left center;
+    -ms-transform-origin: left center;
+    -o-transform-origin: left center;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+}
+.donut-widget .donut-bite.large {
+    left: 0;
+    -moz-transform-origin: center center;
+    -ms-transform-origin: center center;
+    -o-transform-origin: center center;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+}
+.donut-widget .donut-bite:BEFORE {
+    content: "";
+    position: absolute;
+    -moz-transform-origin: right center;
+    -ms-transform-origin: right center;
+    -o-transform-origin: right center;
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+    top: 0;
+}
+.donut-widget .donut-bite.large:BEFORE {
+    left: 0;
+}
+.donut-widget .donut-bite.large:AFTER {
+    content: "";
+    position: absolute;
+}
+.giant.donut-widget {
+    width: 350px;
+    height: 350px;
+}
+.giant.donut-widget div.donut-hole {
+    height: 140px;
+    width: 140px;
+    top: 105px;
+    left: 105px;
+    border-radius: 140px;
+    line-height: 87.5px;
+}
+.giant.donut-widget span.donut-filling {
+    font-size: 85.554px;
+    margin-top: -43.75px;
+    width: 140px;
+    height: 87.5px;
+}
+.giant.donut-widget div.donut-caption-wrapper {
+    width: 350px;
+    top: 427.77777778px;
+}
+.giant.donut-widget span.donut-caption {
+    font-size: 33.7037037px;
+}
+.giant.donut-widget .donut-bite {
+    width: 175px;
+    height: 350px;
+    left: 175.5px;
+}
+.giant.donut-widget .donut-bite:BEFORE {
+    width: 175px;
+    height: 350px;
+    left: -175px;
+    border-radius: 175px 0 0 175px;
+}
+.giant.donut-widget .donut-bite.large:AFTER {
+    width: 175px;
+    height: 350px;
+    left: 175px;
+    border-radius: 0 175px 175px 0;
+}
